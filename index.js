@@ -24,16 +24,18 @@ const corsOptions = {
 app.use(require('./router/todo'));
 app.use(express.json()); 
 
-//serve Client:
-app.use(express.static("./frontEnd/dist"));
+// Serve the frontend build files
+const frontendPath = path.join(__dirname, './frontEnd/dist');
+app.use(express.static(frontendPath));
 
-app.get("*", (req, res) => {
-    res.sendFile('./frontEnd/dist/index.html',
-        function(err) {
-            res.status(500).send(err)
+// Handle the fallback route to serve the React app
+app.get('*', (req, res) => {
+    res.sendFile(path.join(frontendPath, 'index.html'), function(err) {
+        if (err) {
+            res.status(500).send(err);
         }
-    )
-})
+    });
+});
 
 const PORT = process.env.PORT || 4000;
 
