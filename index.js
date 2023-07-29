@@ -14,7 +14,7 @@ require('./db/connection');;
 
 // Set up CORS with specific options
 const corsOptions = {
-    origin: '*',
+    origin: 'https://shy-gray-raven-wrap.cyclic.app/',
     credentials: true,
   };
   
@@ -25,11 +25,11 @@ app.use(require('./router/todo'));
 app.use(express.json()); 
 
 //serve Client:
-app.use(express.static(path.join(__dirname,"./frontEnd/dist")));
+app.use(express.static(path.join('https://shy-gray-raven-wrap.cyclic.app/',"./frontEnd/dist")));
 
 app.get("*", (req, res) => {
     res.sendFile(
-        path.join(__dirname, './frontEnd/dist/index.html'),
+        path.join('https://shy-gray-raven-wrap.cyclic.app/', './frontEnd/dist/index.html'),
         function(err) {
             res.status(500).send(err)
         }
