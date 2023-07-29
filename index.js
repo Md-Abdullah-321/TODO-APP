@@ -25,7 +25,7 @@ app.use(require('./router/todo'));
 app.use(express.json()); 
 
 //serve Client:
-app.use(express.static(path.join('https://shy-gray-raven-wrap.cyclic.app/',"./frontEnd/dist")));
+app.use(express.static("./frontEnd/dist"));
 
 app.get("*", (req, res) => {
     res.sendFile('./frontEnd/dist/index.html',
