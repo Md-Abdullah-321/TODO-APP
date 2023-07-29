@@ -28,8 +28,7 @@ app.use(express.json());
 app.use(express.static(path.join('https://shy-gray-raven-wrap.cyclic.app/',"./frontEnd/dist")));
 
 app.get("*", (req, res) => {
-    res.sendFile(
-        path.join('https://shy-gray-raven-wrap.cyclic.app/', './frontEnd/dist/index.html'),
+    res.sendFile('./frontEnd/dist/index.html',
         function(err) {
             res.status(500).send(err)
         }
