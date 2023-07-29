@@ -25,17 +25,18 @@ app.use(require('./router/todo'));
 app.use(express.json()); 
 
 // Serve the frontend build files
-const frontendPath = path.join(__dirname, './frontEnd/dist');
+const frontendPath = path.resolve(process.cwd(), './frontEnd/dist');
 app.use(express.static(frontendPath));
 
 // Handle the fallback route to serve the React app
 app.get('*', (req, res) => {
-    res.sendFile(path.join(frontendPath, 'index.html'), function(err) {
+    res.sendFile(path.resolve(frontendPath, 'index.html'), function(err) {
         if (err) {
             res.status(500).send(err);
         }
     });
 });
+
 
 const PORT = process.env.PORT || 4000;
 
