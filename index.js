@@ -12,13 +12,13 @@ dotenv.config({path: './config.env'});
 require('./db/connection');;
 
 
-// // Set up CORS with specific options
-// const corsOptions = {
-//     origin: '*',
-//     credentials: true,
-//   };
+// Set up CORS with specific options
+const corsOptions = {
+    origin: '*',
+    credentials: true,
+  };
   
-//   app.use(cors(corsOptions));
+  app.use(cors(corsOptions));
 
 //Middlewares:(Connecting with Router Files)
 app.use(require('./router/todo'));
