@@ -26,7 +26,7 @@ function Registration(props) {
         const { name, email,phone, password } = reg;
 
     try {
-      const res = await fetch('http://localhost:5000/signup', {
+      const res = await fetch('/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

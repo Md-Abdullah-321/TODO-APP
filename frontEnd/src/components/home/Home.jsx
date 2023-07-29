@@ -31,7 +31,7 @@ function Home() {
         e.preventDefault();
 
         // POST data 
-        const res = await fetch('http://localhost:5000/todo', {
+        const res = await fetch('/todo', {
             method: 'POST',
             headers: {
                 "Content-Type":"application/json"
@@ -79,7 +79,7 @@ const setAuthTokenInCookies = (token) => {
       // Get the token from the cookies
       const token = getAuthTokenFromCookies();
   
-      const res = await fetch("http://localhost:5000/todos", {
+      const res = await fetch("/todos", {
         method: "GET",
         headers: {
           Accept: "application/json",
@@ -101,7 +101,7 @@ const setAuthTokenInCookies = (token) => {
   };
   
     const handleDelete = (id, index) => {
-        fetch(`http://localhost:5000/todo/${id}`, {
+        fetch(`/todo/${id}`, {
         method: 'DELETE',
         credentials: "include", 
         })

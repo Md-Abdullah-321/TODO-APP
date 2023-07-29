@@ -9,7 +9,7 @@ function Navbar() {
   const handleClick = async(e) => {
     e.preventDefault();
 
-    const res = await fetch("http://localhost:5000/logout", {
+    const res = await fetch("/logout", {
       method: "GET",
       headers: {
         Accept: "application/json",

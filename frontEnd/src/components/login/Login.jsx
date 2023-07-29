@@ -22,7 +22,7 @@ function Login({setName}) {
     const { email, password } = login;
 
     try {
-      const res = await fetch('http://localhost:5000/signin', {
+      const res = await fetch('/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
