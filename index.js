@@ -14,7 +14,7 @@ require('./db/connection');;
 
 // Set up CORS with specific options
 const corsOptions = {
-    origin: 'https://shy-gray-raven-wrap.cyclic.app/',
+    origin: '*',
     credentials: true,
   };
   
